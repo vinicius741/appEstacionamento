@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { EstacionamentoService } from 'src/app/service/estacionamento.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tab2',
@@ -15,10 +17,15 @@ export class Tab2Page {
   total: any;
   reais: any;
   ticket: any;
+  fire:any;
+  items: Observable<any[]>;
+
 
   constructor(public estacionamentoService: EstacionamentoService,
-    private  router: Router, public alertController: AlertController) { 
+    private  router: Router, public alertController: AlertController,
+    db: AngularFirestore) { 
       this.total = 0;
+      this.items = db.collection('estacionamento').valueChanges();
     }
 
   Calcular() {
@@ -44,7 +51,14 @@ export class Tab2Page {
       this.estacionamentoService.Pagar(this.entrada, this.saida, this.total);
       this.entrada = "";
       this.saida = "";
-      this.total = "R$0,00";
+      
+      // this.items.push({ 
+      //   entrada: this.entrada, 
+      //   ticket: this.ticket, 
+      //   saida:  this.saida,
+      //   total: this.total
+      // })
+      //this.total = "R$0,00";
       this.AlertaSucesso();
     }
     else{

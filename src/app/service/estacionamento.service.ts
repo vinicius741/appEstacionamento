@@ -12,10 +12,11 @@ class Pagamento {
 })
 
 export class EstacionamentoService {
-  constructor() { }
+  
 
   meusPagamentos: Pagamento[] = new Array(); 
   novoPagamento: Pagamento;
+  relative:any;
 
   Iniciar(){
     this.novoPagamento = new Pagamento();
@@ -38,10 +39,11 @@ export class EstacionamentoService {
     this.novoPagamento.saida = saida;
     this.novoPagamento.total = total;
 
-    this.meusPagamentos.push(    
-      this.novoPagamento    
-    );  
 
-    this.meusPagamentos.forEach(item => console.log(item))
+    // this.meusPagamentos.push(    
+    //   this.novoPagamento    
+    // );  
+
+    // this.meusPagamentos.forEach(item => console.log(item))
   }
 }

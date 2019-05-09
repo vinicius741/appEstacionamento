@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <tr *ngFor="let item of lista">  
+  <tr *ngFor="let item of items | async">  
     <ion-card>  
           <ion-card-content>
               <td>Ticket: {{item.ticket}}</td><br>
@@ -18,4 +18,6 @@
         </ion-card>
   </tr>
 </ion-content>
+
+
 
