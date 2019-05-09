@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      Início
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<!-- <ion-content>
     <ion-card class="welcome-card">
       <ion-img src="/assets/shapes.svg"></ion-img>
       <ion-card-header>
@@ -38,4 +38,12 @@
         <ion-label>Theme Your App</ion-label>
       </ion-item>
     </ion-list>
+</ion-content> -->
+
+<ion-content style="position:absolute;
+top:50%;
+left:50%;">
+  <ion-label>Ticket</ion-label>
+  <ion-input [(ngModel)]="ticket" value="Não há ticket" disabled></ion-input>
+  <ion-button type="button" (click)="Gerar()" class="btn btn-primary">Gerar novo ticket</ion-button>
 </ion-content>
